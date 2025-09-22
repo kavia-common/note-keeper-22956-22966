@@ -1,0 +1,21 @@
+<div class="panel">
+  <div class="panel-header">
+    <h3>Your Notes</h3>
+    <form class="quick" [formGroup]="quickForm" (ngSubmit)="quickCreate()">
+      <input type="text" formControlName="title" placeholder="Quick create: New note title..." />
+      <button class="btn btn-primary" type="submit" [disabled]="quickForm.invalid">Add</button>
+    </form>
+  </div>
+
+  <div *ngIf="loading" class="info">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div class="list">
+    <a class="card" *ngFor="let n of notes" [routerLink]="['/note', n.id]">
+      <div class="card-title">{{ n.title || 'Untitled' }}</div>
+      <div class="card-sub">
+        {{ (n.updated_at || n.created_at) ? (n.updated_at || n.created_at | date:'medium') : 'No date' }}
+      </div>
+    </a>
+  </div>
+</div>

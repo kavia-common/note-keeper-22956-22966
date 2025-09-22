@@ -1,0 +1,60 @@
+@import '../layout/shell.component.css';
+
+.auth-card {
+  max-width: 420px;
+  margin: 40px auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  padding: 24px;
+}
+h2 {
+  color: var(--text);
+}
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.field {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+label {
+  font-size: 14px;
+  color: var(--muted);
+}
+input, textarea {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  outline: none;
+  background: #fff;
+}
+input:focus, textarea:focus {
+  border-color: #c7d2fe;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.error {
+  color: var(--error);
+  margin-top: 8px;
+}
+
+.switch {
+  text-align: center;
+  margin-top: 12px;
+}
+.switch a {
+  color: var(--primary);
+  text-decoration: none;
+}

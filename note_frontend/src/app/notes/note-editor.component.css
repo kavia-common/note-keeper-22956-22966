@@ -1,0 +1,64 @@
+@import '../layout/shell.component.css';
+
+.editor {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.title {
+  border: none;
+  border-bottom: 1px solid var(--border);
+  font-size: 20px;
+  padding: 6px 0;
+  outline: none;
+}
+.title:focus {
+  border-color: #c7d2fe;
+  box-shadow: 0 4px 0 -2px rgba(37,99,235,0.2);
+}
+.content {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  outline: none;
+  min-height: 300px;
+}
+.content:focus {
+  border-color: #c7d2fe;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+}
+
+.info { color: var(--muted); }
+.error { color: var(--error); }
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+.link {
+  color: var(--primary);
+  text-decoration: none;
+}

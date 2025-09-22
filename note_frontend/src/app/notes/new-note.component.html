@@ -1,0 +1,15 @@
+<div class="editor">
+  <div class="bar">
+    <a routerLink="/" class="link">&larr; Back</a>
+    <div class="actions">
+      <button class="btn btn-primary" (click)="create()">Create</button>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <form [formGroup]="form" class="form">
+    <input class="title" type="text" formControlName="title" placeholder="Note title" />
+    <textarea class="content" rows="16" formControlName="content" placeholder="Write your note here..."></textarea>
+  </form>
+</div>

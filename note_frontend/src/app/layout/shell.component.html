@@ -1,0 +1,40 @@
+<div class="app">
+  <!-- Top Navigation -->
+  <header class="topbar">
+    <div class="brand" (click)="goHome()">
+      <div class="logo">🗒️</div>
+      <div class="title">
+        <span class="name">Note Keeper</span>
+        <span class="tag">Ocean Professional</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <ng-container *ngIf="auth.getToken(); else loggedOut">
+        <span class="user-email">{{ email }}</span>
+        <button class="btn btn-amber" (click)="logout()">Logout</button>
+      </ng-container>
+      <ng-template #loggedOut>
+        <a class="link" routerLink="/login">Login</a>
+        <a class="btn btn-amber" routerLink="/signup">Sign up</a>
+      </ng-template>
+    </div>
+  </header>
+
+  <!-- Main Area -->
+  <div class="main">
+    <aside class="sidebar">
+      <nav class="nav">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">All Notes</a>
+        <a routerLink="/new" routerLinkActive="active">New Note</a>
+      </nav>
+      <div class="hint">
+        Use the sidebar to navigate, and the center area to view or edit notes.
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <router-outlet></router-outlet>
+    </section>
+  </div>
+</div>

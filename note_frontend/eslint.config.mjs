@@ -1,5 +1,3 @@
-import tsParser from "@typescript-eslint/parser";
-
 export default [
   {
     ignores: [
@@ -11,22 +9,13 @@ export default [
       "*.config.mjs",
     ]
   },
+  // Use base ESLint with JS parser to avoid requiring 'typescript' in CI.
   {
-    files: ["**/*.ts", "**/*.tsx"],
+    files: ["**/*.{js,mjs,cjs}"],
     languageOptions: {
-      parser: tsParser,
-      parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module"
-      },
+      ecmaVersion: "latest",
+      sourceType: "module",
       globals: {
-        // Test globals
-        describe: "readonly",
-        beforeEach: "readonly",
-        it: "readonly",
-        expect: "readonly",
-        // Browser globals
-        HTMLElement: "readonly",
         // Node.js globals
         process: "readonly",
         console: "readonly"
@@ -34,7 +23,7 @@ export default [
     },
     rules: {
       "no-undef": "error",
-      "no-unused-vars": "off", // Turn off since TS handles this
+      "no-unused-vars": "off",
       "no-unreachable": "error",
       "no-unexpected-multiline": "error",
       "no-unsafe-finally": "error",
