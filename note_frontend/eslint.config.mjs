@@ -9,16 +9,24 @@ export default [
       "*.config.mjs",
     ]
   },
-  // Use base ESLint with JS parser to avoid requiring 'typescript' in CI.
+  // Base ESLint for JS files
   {
     files: ["**/*.{js,mjs,cjs}"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
       globals: {
-        // Node.js globals
+        // Common globals
+        console: "readonly",
+        // Node.js globals for most build/tooling scripts
         process: "readonly",
-        console: "readonly"
+        __dirname: "readonly",
+        __filename: "readonly",
+        require: "readonly",
+        module: "readonly",
+        // Browser globals for public assets
+        window: "readonly",
+        document: "readonly",
       }
     },
     rules: {
@@ -40,6 +48,34 @@ export default [
       "no-sparse-arrays": "error",
       "use-isnan": "error",
       "valid-typeof": "error"
+    }
+  },
+  // Specific overrides
+  {
+    files: ["bin/**"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "script",
+      globals: {
+        require: "readonly",
+        module: "readonly",
+        process: "readonly",
+        __dirname: "readonly",
+        __filename: "readonly",
+        console: "readonly",
+      }
+    }
+  },
+  {
+    files: ["public/**/*.js"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "script",
+      globals: {
+        window: "readonly",
+        document: "readonly",
+        console: "readonly",
+      }
     }
   }
 ];

@@ -10,6 +10,8 @@
   <!--
     To override the backend API base URL at runtime, uncomment and set the following:
     <script>window.__APP_API_BASE_URL__ = 'https://your-backend.example.com';</script>
+    Note: Files in /public are served statically. You may add a file public/runtime-config.js with
+    window.__APP_API_BASE_URL__ to set the value for local dev, ensuring it loads before Angular.
   -->
 </head>
 <body>
